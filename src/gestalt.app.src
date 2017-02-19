@@ -1,0 +1,12 @@
+{application, 'gestalt',
+ [{description, "Gradual ETS persistence"},
+  {vsn, "0.0.1"},
+  {registered, []},
+  {mod, {'gestalt_app', []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []}
+ ]}.
