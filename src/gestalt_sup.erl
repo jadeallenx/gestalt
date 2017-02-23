@@ -2,7 +2,7 @@
 -behaviour(supervisor).
 
 -export([
-    start_link/0
+    start_link/0,
     start_new_manager/3,
     start_new_manager/4,
     start_new_manager/5
@@ -19,7 +19,7 @@ start_link() ->
     supervisor:start_link({local, ?SERVER}, ?MODULE, []).
 
 start_new_manager(TableOwnerPid, TableId, Directory) ->
-    start_new_manager(TableOwnerPid, TableId, Directory, gestalt:get_env(default_interval, ?DEFAULT_INTERVAL))
+    start_new_manager(TableOwnerPid, TableId, Directory, gestalt:get_env(default_interval, ?DEFAULT_INTERVAL)).
 
 start_new_manager(TableOwnerPid, TableId, Directory, Interval) ->
     supervisor:start_child(?SERVER, [TableOwnerPid, TableId, Directory, Interval]).
